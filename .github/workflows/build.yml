@@ -1,13 +1,13 @@
-name: Build
+name: build
 
 permissions:
   contents: read
 
 on:
-  pull_request:
-    branches: [ "main" ]
   push:
-    branches: [ "main" ]
+    branches: [ 'main' ]
+  pull_request:
+    branches: [ 'main' ]
 
 jobs:
   build-and-test:
@@ -22,7 +22,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
+        cache: 'maven'
 
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots verify
