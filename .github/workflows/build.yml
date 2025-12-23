@@ -27,6 +27,11 @@ jobs:
       - name: maven-verify
         run: mvn --batch-mode --update-snapshots verify
 
+      - name: jacoco-badge-generator
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+        
       - name: prepare-artifacts
         run: mkdir staging && cp target/*.jar staging
 
